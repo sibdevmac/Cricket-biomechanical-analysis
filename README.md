@@ -1,199 +1,126 @@
-Cricket Biomechanical & Aerodynamic Analysis
+# 🏏 Cricket Biomechanical Analysis
 
-Understanding cricket performance is not only tactical but also biomechanical and physics-driven.
-This project studies how release mechanics, aerodynamics, and pitch interaction influence:
+## 📌 Project Overview
+This project explores **cricket biomechanics and sports physics** to understand how bowling mechanics influence ball behavior, shot selection, and match outcomes.
 
-bounce behavior
+Using trajectory physics, kinetic energy calculations, and statistical analysis, we study how **release angle, bounce height, and ball energy** affect:
 
-shot selection
+- Runs scored
+- Wicket probability
+- Shot difficulty
+- Bowling effectiveness
 
-scoring efficiency
+The goal is to apply **data science + sports analytics** to derive performance insights for bowlers and batters.
 
-wicket probability
+---
 
-bowling effectiveness
+## 📂 Dataset
 
-Using data-driven modeling and interactive visualizations, we connect sports physics + analytics + machine learning to evaluate optimal bowling strategies.
+**Source:** Kaggle – Cricket Shot Selection Dataset  
+Link: https://www.kaggle.com/datasets/piyushsharma18/cricket-shot-selection
 
-📂 Dataset
+The dataset includes biomechanical and match-related features such as:
 
-Source: Kaggle
-🔗 https://www.kaggle.com/datasets/piyushsharma18/cricket-shot-selection
+- Release angle
+- Velocity
+- Kinetic energy
+- Bounce height
+- Shot type
+- Runs scored
+- Wickets
+- Ball outcomes
 
-Key Features
+---
 
-Bowler Type
+## ❓ Research Questions
 
-Ball Length
+This project answers the following:
 
-Ball Line
-
-Speed (km/h)
-
-Shot Type
-
-Runs Scored
-
-Wicket
-
-Field Placement
-
-Angle (release angle)
-
-Bounce (cm)
-
-Field Positions
-
-These variables enable both:
-
-Biomechanics analysis → angle, speed, bounce
-
-Tactical analysis → length, line, field
-
-Outcome modeling → runs, wickets
-
-🎯 Research Questions
-RQ1
-
+### RQ1
 How does release angle determine bounce height and scoring outcomes?
 
-RQ2
-
+### RQ2
 Does higher kinetic energy increase wicket probability or scoring risk?
 
-RQ3
+### RQ3
+Which angle creates difficult batting conditions?
 
-Which release angles create difficult batting conditions?
-
-RQ4
-
+### RQ4
 How does bounce height influence shot selection and success?
 
-RQ5
+### RQ5
+Can we build an aerodynamic prediction model for identifying the best bowlers?
 
-Can we predict “good bowlers” using aerodynamic characteristics?
+---
 
-⚙️ Methods Used
-Statistical
+## 🧠 Methodology
 
-Correlation analysis
+- Exploratory Data Analysis (EDA)
+- Heatmaps
+- Kinetic energy modeling (½mv²)
+- Angle vs bounce trend analysis
+- Interactive visualizations
 
-Grouped aggregation
+---
 
-Risk curves
+## 📊 Key Findings
 
-Heatmaps
+### ✅ RQ1 — Release Angle vs Bounce Height
+- Bounce height first increases, then decreases, and rises again with angle.
+- Release angle alone does **not directly control bounce**.
+- Surface hardness and pitch conditions are stronger contributors.
 
-Physics-based
+**Conclusion:** Angle affects trajectory more than bounce physics.
 
-Kinetic energy modeling
+<img width="576" height="538" alt="image" src="https://github.com/user-attachments/assets/d0c571b9-350e-458d-9492-5433cb1120d6" />
 
-Bounce–angle geometry
+---
 
-Trajectory visualization
+### ✅ RQ2 — Kinetic Energy vs Match Outcomes
+- Very high energy → higher average runs, fewer wickets
+- Medium energy → balanced performance
+- Very low energy → higher wickets due to deception
 
-Machine Learning
+**Conclusion:** Slower or deceptive deliveries can increase wicket probability.
 
-Logistic Regression
+---
 
-Random Forest classifier
+### ✅ RQ3 — Optimal Release Angle
+- Low release angles create tougher batting conditions
+- 10–12° angles increase scoring chances
+- Around 0° is the most economical bowling zone
 
-Probability prediction of bowling effectiveness
+<img width="629" height="468" alt="image" src="https://github.com/user-attachments/assets/d979b277-117b-4b36-abef-b89af755d299" />
 
-Visualization
+**Conclusion:** Flatter trajectories benefit bowlers.
 
-3D trajectory plots
 
-Heatmaps
+---
 
-Chord diagrams
+### ✅ RQ4 — Bounce Height vs Shot Selection
 
-Sankey diagrams
+| Bounce Height | Batting Behavior | Advantage |
+|-------------|-----------------|-----------|
+| Low         | Aggressive cross-bat shots | Batter |
+| Medium      | Free scoring             | Neutral |
+| High        | Defensive straight bat   | Bowler |
 
-Interactive HTML dashboards (Plotly/Flourish/Power BI)
+<img width="785" height="590" alt="image" src="https://github.com/user-attachments/assets/dfdc09a0-64c4-4f59-b855-c6b0b73ba089" />
 
-📊 Key Findings
-🟢 RQ1 — Angle vs Bounce
+**Conclusion:** Higher bounce favors bowlers and reduces scoring freedom.
 
-Finding:
+---
 
-Bounce shows a non-linear relationship with release angle
+### ✅ RQ5 — Aerodynamic Bowler Prediction
+- Successful bowlers show:
+  - Lower median runs
+  - Controlled energy output
+  - Stable release mechanics
+- Visual clustering identifies high-performance zones
 
-Correlation ≈ 0 (very weak)
+**Conclusion:** Consistency + controlled aerodynamics define effective bowlers.
 
-Pitch hardness and surface conditions influence bounce more than angle
+---
 
-Insight:
-Release angle alone does not control bounce height.
-
-🟢 RQ2 — Kinetic Energy vs Risk
-
-Finding:
-
-Very high energy → higher average runs, fewer wickets
-
-Medium energy → balanced risk/reward
-
-Low energy → deceptive deliveries, higher wicket rate
-
-Insight:
-Energy shows a U-shaped risk curve, where extremes create different advantages.
-
-🟢 RQ3 — Optimal Release Angle
-
-Finding:
-
-Near 0° release angle → most economical
-
-Steeper angles → easier scoring
-
-Slightly negative angles → harder for batters
-
-Insight:
-Flat trajectories reduce batting freedom and improve control.
-
-🟢 RQ4 — Bounce vs Shot Selection
-
-Finding:
-
-Low bounce → aggressive cross-bat shots (pull/hook/flick)
-
-Medium bounce → maximum scoring freedom
-
-High bounce → defensive straight-bat play
-
-Insight:
-Higher bounce restricts attacking shots and favors bowlers.
-
-🟢 RQ5 — Aerodynamic Prediction of Good Bowlers
-
-We trained a model using:
-
-Speed
-
-Angle
-
-Bounce
-
-Length
-
-Line
-
-Bowler Type
-
-Result
-
-The model predicts bowling effectiveness probability and visualizes it in 3D:
-
-Yellow → high performance zone
-
-Dark → poor deliveries
-
-Insight:
-Successful bowlers cluster around:
-
-moderate-high speed
-
-controlled bounce
-
-stable angle
+## 👤 Author
+Your Name
